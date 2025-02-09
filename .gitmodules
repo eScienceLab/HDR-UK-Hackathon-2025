@@ -1,0 +1,3 @@
+[submodule "SampoUI_Server/sampo-ui"]
+	path = SampoUI_Server/sampo-ui
+	url = git@github.com:SemanticComputing/sampo-ui.git

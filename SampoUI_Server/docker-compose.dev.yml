@@ -1,0 +1,52 @@
+services:
+  sampo-ui: 
+    container_name: rocrate-sampo-ui
+    build:
+      context: .
+      dockerfile: docker/sampo-ui/dev.dockerfile
+    restart: unless-stopped
+    tty: true
+    # env_file:
+    #   - .env
+    # networks:
+    #   - web-network
+    ports:
+      - "8080:8080"
+      - "3001:3001"
+    volumes:
+      - node_modules:/usr/src/app/node_modules/
+      #- ./sampo-ui/src:/usr/src/app/src/
+      #- ./frontend/src/client/translations/cebeme:/usr/src/app/src/client/translations/cebeme/
+      #- ./frontend/src/client/components/perspectives/cebeme:/usr/src/app/src/client/components/perspectives/cebeme/
+      #- ./frontend/src/configs:/usr/src/app/src/configs/
+      #- ./frontend/src/server/sparql/cebeme/sparql_queries:/usr/src/app/src/server/sparql/cebeme/sparql_queries/
+
+
+  jena-fuseki:
+    container_name: rocrate-jena-fuseki
+    image: stain/jena-fuseki
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3030:3030"
+    volumes:
+      - jena-fuseki-data:/fuseki
+    # secrets:
+    #   - admin_password
+    environment:
+      ADMIN_PASSWORD: admin
+      # ADMIN_PASSWORD_FILE: /run/secrets/admin_password
+
+# secrets:
+#   admin_password:
+#     file: .docker/secrets/admin_password.txt
+
+# networks:
+#   web-network:
+#     name: europeanbooks-web-network
+
+volumes:
+  jena-fuseki-data:
+    name: rocrate-data
+  node_modules:
+    name: rocrate-node_modules
