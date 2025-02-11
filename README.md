@@ -6,24 +6,24 @@ Welcome to our HDR-UK Hackathon 2025 repository! This project focuses on buildin
 
 This README provides guidance on:
 
-- Understanding RO Crates and their role in research data management.
-- Transforming RO Crates into Knowledge Graphs (KGs) with TTL files.
+- Understanding RO-Crates and their role in research data management.
+- Transforming RO-Crates into Knowledge Graphs (KGs) with TTL files.
 - Visualising the KG data using Sampo UI and Streamlit Dashboards.
 
 ### 🖥️ What are TREs? 
 
-Trusted Research Environments (TREs) are secure environments designed to provide researchers with controlled access to sensitive data, whilst maintaining privacy and security measures.
+[Trusted Research Environments (TREs)](https://satre-specification.readthedocs.io/en/stable/faqs.html#what-tre) are secure environments designed to provide researchers with controlled access to sensitive data, whilst maintaining privacy and security measures.
 
-### 🗂 What are RO Crates? 
+### 🗂 What are RO-Crates? 
 
-RO-Crates are a community-driven format for packaging research data with machine-readable metadata to enhance Findability, Accessibility, Interoperability, and Reusability (FAIR principles) of research outputs. 
+[RO-Crates](https://www.researchobject.org/ro-crate/about_ro_crate) are a community-driven format for packaging research data with machine-readable metadata to enhance Findability, Accessibility, Interoperability, and Reusability (FAIR principles) of research outputs. 
 
-RO Crates are: 
+RO-Crates are: 
 - Self-contained: bundling datasets, metadata, and provenance in a structured format.
 - Based on JSON-LD based metadata.
 - Portable and interoperable: they work across different systems with a growing ecosystem of tooling. 
 
-Example RO Crate structure:
+Example RO-Crate structure:
 ```
 📦 ro-crate.zip
  ├── 📜 ro-crate-metadata.json  # Machine-readable metadata
@@ -38,7 +38,7 @@ Example RO-Crates are provided in the `bin` directory:
 
 ### 📝 What are TTL (Turtle) Files?
 
-TTL (Terse RDF Triple Language) is a serialisation format for RDF (Resource Description Framework), used to express structured data in a machine-readable way. 
+[TTL (Terse RDF Triple Language)](https://www.w3.org/TR/turtle/) is a serialisation format for RDF (Resource Description Framework), used to express structured data in a machine-readable way. 
 
 TTL represents triples in the form of:
 ```
@@ -58,7 +58,7 @@ Example TTL representation:
         foaf:mbox <mailto:jane.doe@example.org>
     ] .
 ```
-We can use TTL to convert RO Crate metadata into structured RDF for Knowledge Graphs to enables semantic search, interoperability, and linked data integration.
+We can use TTL to convert RO-Crate metadata into structured RDF for Knowledge Graphs to enables semantic search, interoperability, and linked data integration.
 
 An example TTL file is provided in the `bin` directory:
 - `ttl` contains a collection of RO-Crates from WorkflowHub.
@@ -66,7 +66,7 @@ An example TTL file is provided in the `bin` directory:
 
 ### 🌐 Knowledge Graphs
 
-A Knowledge Graph (KG) is a structured representation of entities, relationships, and metadata in a way that enables semantic reasoning and linked data integration.
+A [Knowledge Graph (KG)](https://www.turing.ac.uk/research/interest-groups/knowledge-graphs) is a structured representation of entities, relationships, and metadata in a way that enables semantic reasoning and linked data integration.
 
 KGs can:
 - Enhance data interoperability across different systems.
@@ -80,11 +80,11 @@ KGs can:
     - Graph-Based Clustering (e.g., Spectral Clustering)
 
 
-### 🏗️ Creating KGs from RO Crates
+### 🏗️ Creating KGs from RO-Crates
 
 The general idea is as follows:
 
-1. Extract Metadata from RO Crate (ro-crate-metadata.json).
+1. Extract Metadata from RO-Crate (ro-crate-metadata.json).
 2. Convert JSON-LD metadata into RDF triples using a script.
 3. Store RDF triples in TTL format.
 4. Load TTL files into a Triplestore (e.g., Fuseki).
@@ -159,18 +159,16 @@ if __name__ == "__main__":
 
 ## 📊 Dashboards & Visualisation Tools
 
-### Sampo UI
-Sampo-UI is a linked data visual exploration tool for KGs. It enables:
-- Interactive data exploration.
-- SPARQL-based visualisations.
-
-### Setting up Jena-Fuseki & Sampo-UI Server
+### 🖥️ Setting up Jena-Fuseki & Sampo UI
 
 Two services are provided:
-- Jena-Fuseki graph database server
-- Sampo-UI front end webserver
+- [Jena-Fuseki](https://jena.apache.org/documentation/fuseki2/) (SPARQL server)
+- [Sampo-UI](https://github.com/SemanticComputing/sampo-ui) (front end webserver)
+  - Sampo-UI is a linked data visual exploration tool for KGs. It enables:
+    - Interactive data exploration.
+    - SPARQL-based visualisations.
 
-#### Requirements
+#### 📋 Requirements
 
 - [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 - [Docker](https://www.docker.com/)
@@ -179,14 +177,14 @@ Git submodules are used to provide the Sampo-UI code, after cloning this reposit
 - `git submodule init`
 - `git submodule update`
 
-#### Starting Server
+#### 🚀 Starting Server
 
 Within the `SampoUI_Server` directory use the docker compose file to start the server:
 ```
 docker compose -f docker-compose.dev.yml up -d --build
 ```
 
-#### Building RO-Crate graph database
+#### 🗂️ Building RO-Crate graph database
 
 Access the Jena-Fuseki server at `https://localhost:3030` from your web browser.
 
@@ -195,15 +193,15 @@ The username and password for the server is `admin`.
 To add a new dataset:
 1. Select the **manage** tab from the top bar
 2. Select the **new dataset** tab
- - Name dataset: `WFH`
- - Select `Persistent` dataset option
- - Click **create dataset** button
+   - Name dataset: `WFH`
+   - Select `Persistent` dataset option
+   - Click **create dataset** button
 3. Select the **existing datasets** tab and, for the `WFH` database:
- - Click **add data** button
- - Leave `Dataset graph name` blank
- - Click **select files**
- - Select `bin/ttl/merged.ttl` file
- - Click **upload now** button
+   - Click **add data** button
+   - Leave `Dataset graph name` blank
+   - Click **select files**
+   - Select `bin/ttl/merged.ttl` file
+   - Click **upload now** button
  
 To test that your upload was successful:
 - Select the **datasets** tab from the top bar
@@ -211,19 +209,19 @@ To test that your upload was successful:
 - Click **count triples in all graphs** button, this should give the following information:
  - `default graph`, triples = 155947
 
-#### Stopping Server
+#### 🛑 Stopping Server
 
 To stop the server you can use:
 ```
 docker compose -f docker-compose.dev.yml down
 ```
 
-### Working with Sampo-UI web frontend.
+### 🌐 Working with Sampo-UI web frontend.
 
 ...
 
-### Streamlit
-Streamlit is a Python-based web framework for building interactive dashboards. Use it to:
+### 📈 Streamlit
+[Streamlit](https://streamlit.io) is a Python-based web framework for building interactive dashboards. Use it to:
 - Display KG insights dynamically.
 - Implement custom visualisations from SPARQL queries.
 - Create user-friendly interfaces for non-technical users.
