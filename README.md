@@ -40,6 +40,14 @@ Example RO-Crates are provided in the `bin` directory:
 
 The [RO-Crate tutorial](https://www.researchobject.org/packaging_data_with_ro-crate/) explains the basic structures within the JSON-LD.
 
+### RO-Crate tooling
+
+The [RO-Crate playground](https://ro-crate.ldaca.edu.au/) can visualise based on JSON-LD or allow form-based editing of the metadata. 
+
+The [Crate-O](https://language-research-technology.github.io/crate-o/) tool can inspect a local folder to annotate its files and make an RO-Crate. 
+
+The [RO-Crate Python library](https://pypi.org/project/rocrate/) and [RO-Crate JavaScript library](https://www.npmjs.com/package/ro-crate) allow programmatic RO-Crate generation and consumption.
+
 ### 📝 What are TTL (Turtle) Files?
 
 [TTL (Terse RDF Triple Language)](https://www.w3.org/TR/turtle/) is a serialisation format for RDF (Resource Description Framework), used to express structured data in a machine-readable way. 
