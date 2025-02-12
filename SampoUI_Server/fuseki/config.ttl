@@ -36,7 +36,7 @@
        fuseki:serviceReadWriteGraphStore "data" ;
        fuseki:dataset [
          rdf:type tdb2:DatasetTDB2 ;
-         tdb2:location "/fuseki/databases/FEDA" ;
+         tdb2:location "/fuseki/databases/rocrate" ;
        ]
      ]
    )
