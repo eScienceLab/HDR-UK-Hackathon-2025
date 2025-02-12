@@ -14,6 +14,8 @@ This README provides guidance on:
 
 [Trusted Research Environments (TREs)](https://satre-specification.readthedocs.io/en/stable/faqs.html#what-tre) are secure environments designed to provide researchers with controlled access to sensitive data, whilst maintaining privacy and security measures.
 
+The [What is federated analytics?](https://trefx.uk/federated-analytics) primer explains the _Five Safes_ principles and how these are particularly important if accessing multiple TREs for federated analytics, e.g. machine learning.
+
 ### 🗂 What are RO-Crates? 
 
 [RO-Crates](https://www.researchobject.org/ro-crate/about_ro_crate) are a community-driven format for packaging research data with machine-readable metadata to enhance Findability, Accessibility, Interoperability, and Reusability (FAIR principles) of research outputs. 
@@ -34,7 +36,9 @@ Example RO-Crate structure:
 ```
 
 Example RO-Crates are provided in the `bin` directory:
-- `ro-crates` contains example RO-Crates for different profiles. 
+- [`ro-crates`](bin/ro-crates/) contains example RO-Crates for different profiles. 
+
+The [RO-Crate tutorial](https://www.researchobject.org/packaging_data_with_ro-crate/) explains the basic structures within the JSON-LD.
 
 ### 📝 What are TTL (Turtle) Files?
 
