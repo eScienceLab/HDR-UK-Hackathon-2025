@@ -1,5 +1,6 @@
 services:
   sampo-ui: 
+    platform: linux/x86_64
     container_name: rocrate-sampo-ui
     build:
       context: .
@@ -23,6 +24,7 @@ services:
 
 
   jena-fuseki:
+    platform: linux/x86_64
     container_name: rocrate-jena-fuseki
     image: stain/jena-fuseki
     restart: unless-stopped
@@ -31,6 +33,7 @@ services:
       - "3030:3030"
     volumes:
       - jena-fuseki-data:/fuseki
+      - ./fuseki/config.ttl:/fuseki/config.ttl
     # secrets:
     #   - admin_password
     environment:
