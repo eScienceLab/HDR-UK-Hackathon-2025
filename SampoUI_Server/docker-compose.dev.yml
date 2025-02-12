@@ -16,12 +16,11 @@ services:
       - "3001:3001"
     volumes:
       - node_modules:/usr/src/app/node_modules/
-      #- ./sampo-ui/src:/usr/src/app/src/
-      #- ./frontend/src/client/translations/cebeme:/usr/src/app/src/client/translations/cebeme/
-      #- ./frontend/src/client/components/perspectives/cebeme:/usr/src/app/src/client/components/perspectives/cebeme/
-      #- ./frontend/src/configs:/usr/src/app/src/configs/
-      #- ./frontend/src/server/sparql/cebeme/sparql_queries:/usr/src/app/src/server/sparql/cebeme/sparql_queries/
-
+      - ./frontend/src/configs/rocrate:/usr/src/app/src/configs/rocrate
+      - ./frontend/src/client/components/perspectives/rocrate:/usr/src/app/src/client/components/perspectives/rocrate
+      - ./frontend/src/client/translations/rocrate:/usr/src/app/src/client/translations/rocrate
+      - ./frontend/src/server/sparql/rocrate:/usr/src/app/src/server/sparql/rocrate
+      - ./frontend/src/configs/portalConfig.json:/usr/src/app/src/configs/portalConfig.json
 
   jena-fuseki:
     platform: linux/x86_64
