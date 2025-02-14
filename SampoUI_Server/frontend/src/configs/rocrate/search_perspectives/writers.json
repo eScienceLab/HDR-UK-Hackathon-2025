@@ -1,0 +1,164 @@
+{
+    "id": "writers",
+    "endpoint": {
+        "url": "https://dbpedia.org/sparql",
+        "useAuth": false,
+        "prefixesFile": "SparqlQueriesPrefixes.js"
+    },
+    "sparqlQueriesFile": "SparqlQueriesWriters.js",
+    "baseURI": "http://dbpedia.org/resource/",
+    "URITemplate": "<BASE_URI><LOCAL_ID>",
+    "facetClass": "dbo:Writer",
+    "frontPageImage": "main_page/works-452x262.jpg",
+    "searchMode": "faceted-search",
+    "defaultActiveFacets": [
+        "prefLabel"
+    ],
+    "defaultTab": "table",
+    "defaultInstancePageTab": "table",
+    "resultClasses": {
+        "writers": {
+            "paginatedResultsConfig": {
+                "tabID": 0,
+                "component": "ResultTable",
+                "tabPath": "table",
+                "tabIcon": "CalendarViewDay",
+                "propertiesQueryBlock": "writerProperties",
+                "pagesize": 10,
+                "sortBy": null,
+                "sortDirection": null
+            },
+            "instanceConfig": {
+                "propertiesQueryBlock": "writerProperties",
+                "instancePageResultClasses": {
+                    "instancePageTable": {
+                        "tabID": 0,
+                        "component": "InstancePageTable",
+                        "tabPath": "table",
+                        "tabIcon": "CalendarViewDay"
+                    }
+                }
+            }
+        },
+        "writersByProperty": {
+			"tabID": 1,
+			"component": "ApexCharts",
+			"doNotRenderOnMount": true,
+			"tabPath": "pie_chart",
+			"tabIcon": "PieChart",
+			"facetClass": "writers",
+			"dropdownForResultClasses": true,
+			"defaultResultClass": "writersByOccupation",
+			"resultClasses": {
+				"writersByOccupation": {
+					"sparqlQuery": "writersByOccupationQuery",
+					"filterTarget": "writer",
+					"resultMapper": "mapPieChart",
+					"sliceVisibilityThreshold": 0.01,
+					"dropdownForChartTypes": true,
+					"chartTypes": [
+						{
+							"id": "pie",
+							"createChartData": "createApexPieChartData"
+						},
+						{
+							"id": "bar",
+							"createChartData": "createApexBarChartData"
+						}
+					]
+				}
+			}
+		}
+    },
+    "properties": [
+        {
+            "id": "uri",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "prefLabel",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250
+        },
+        {
+			"id": "genre",
+			"valueType": "object",
+			"makeLink": false,
+			"externalLink": false,
+			"sortValues": true,
+			"numberedList": false,
+			"minWidth": 250
+		},
+		{
+			"id": "occupation",
+			"valueType": "object",
+			"makeLink": true,
+			"externalLink": false,
+			"sortValues": true,
+			"numberedList": false,
+			"minWidth": 250
+		},
+		{
+			"id": "almaMater",
+			"valueType": "object",
+			"makeLink": true,
+			"externalLink": false,
+			"sortValues": true,
+			"numberedList": false,
+			"minWidth": 250
+		}
+    ],
+    "facets": {
+        "prefLabel": {
+            "sortByPredicate": "rdfs:label"
+        },
+		"genre": {
+			"containerClass": "ten",
+			"facetType": "list",
+			"filterType": "uriFilter",
+			"facetLabelPredicate": "rdfs:label",
+			"facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')",
+			"predicate": "dbo:genre",
+			"searchField": true,
+			"sortButton": true,
+			"sortBy": "instanceCount",
+			"sortByPredicate": "dbo:genre/rdfs:label",
+			"sortDirection": "desc"
+		},
+		"occupation": {
+			"containerClass": "ten",
+			"facetType": "list",
+			"filterType": "uriFilter",
+			"facetLabelPredicate": "rdfs:label",
+			"facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')",
+			"predicate": "dbo:occupation",
+			"searchField": true,
+			"sortButton": true,
+			"sortBy": "instanceCount",
+			"sortByPredicate": "dbo:occupation/rdfs:label",
+			"sortDirection": "desc"
+		},
+		"almaMater": {
+			"containerClass": "ten",
+			"facetType": "list",
+			"filterType": "uriFilter",
+			"facetLabelPredicate": "rdfs:label",
+			"facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')",
+			"predicate": "dbo:almaMater",
+			"searchField": true,
+			"sortButton": true,
+			"sortBy": "instanceCount",
+			"sortByPredicate": "dbo:almaMater/rdfs:label",
+			"sortDirection": "desc"
+		}
+    }
+}
