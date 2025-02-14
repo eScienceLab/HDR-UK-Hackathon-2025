@@ -3,9 +3,18 @@
     "rootUrl": "",
     "perspectives": {
         "searchPerspectives": [
-            "writers"
+            "writers",
+            "perspective2",
+            "persons"
         ],
         "onlyInstancePages": [
+            "manuscripts",
+            "collections",
+            "works",
+            "expressions",
+            "events",
+            "actors",
+            "places"
         ]
     },
     "localeConfig": {
@@ -34,7 +43,7 @@
     },
     "knowledgeGraphMetadataConfig": {
         "showTable": false,
-        "perspective": "perspective1" 
+        "perspective": "perspective1"
     },
     "layoutConfig": {
         "colorPalette": {
@@ -110,7 +119,7 @@
         "yasguiParams": {
             "contentTypeConstruct": "text/turtle",
             "contentTypeSelect": "application/sparql-results+json",
-            "endpoint": "https://dbpedia.org/sparql",
+            "endpoint": "https://ldf.fi/mmm/sparql",
             "requestMethod": "POST",
             "tabTitle": "Exported query"
         }
