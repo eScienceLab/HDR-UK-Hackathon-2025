@@ -9,7 +9,7 @@ export const prefixes = `
   PREFIX text: <http://jena.apache.org/text#>
   PREFIX dct: <http://purl.org/dc/terms/>
   PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
-  PREFIX sch: <http://schema.org/>
+  PREFIX schema: <http://schema.org/>
   PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
   PREFIX frbroo: <http://erlangen-crm.org/efrbroo/>
   PREFIX mmm-schema: <http://ldf.fi/schema/mmm/>
