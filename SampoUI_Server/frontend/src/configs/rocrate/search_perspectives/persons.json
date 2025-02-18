@@ -61,7 +61,7 @@
         },
         {
             "id": "prefLabel",
-            "valueType": "literal",
+            "valueType": "string",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
