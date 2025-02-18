@@ -7,8 +7,6 @@ services:
       dockerfile: docker/sampo-ui/dev.dockerfile
     restart: unless-stopped
     tty: true
-    #env:
-    #  SPARQL_ENDPOINT_BASIC_AUTH: admin
     # env_file:
     #   - .env
     # networks:

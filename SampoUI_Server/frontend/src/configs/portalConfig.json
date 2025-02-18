@@ -3,19 +3,9 @@
     "rootUrl": "",
     "perspectives": {
         "searchPerspectives": [
-            "writers",
-            "perspective2",
             "persons"
         ],
-        "onlyInstancePages": [
-            "manuscripts",
-            "collections",
-            "works",
-            "expressions",
-            "events",
-            "actors",
-            "places"
-        ]
+        "onlyInstancePages": []
     },
     "localeConfig": {
         "defaultLocale": "en",
